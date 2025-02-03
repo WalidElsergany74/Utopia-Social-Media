@@ -11,7 +11,8 @@ async function WhoToFollow() {
   if (users.length === 0) return null;
 
   return (
-    <Card className="bg-background">
+   <div className="sticky top-28">
+     <Card className="bg-background ">
       <CardHeader>
         <CardTitle>Who to Follow</CardTitle>
       </CardHeader>
@@ -39,6 +40,7 @@ async function WhoToFollow() {
         </div>
       </CardContent>
     </Card>
+   </div>
   );
 }
 export default WhoToFollow;

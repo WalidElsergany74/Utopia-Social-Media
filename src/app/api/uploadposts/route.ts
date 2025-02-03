@@ -15,22 +15,26 @@ export async function POST(request: Request) {
     if (!file) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
+
     // Convert the file to a format Cloudinary can handle (Buffer or Base64)
     const fileBuffer = await file.arrayBuffer();
     const base64File = Buffer.from(fileBuffer).toString("base64");
-    console.log("base64File", base64File);
-    // Upload to Cloudinary
+
+    // Define transformations to ensure the image quality is preserved
+    const transformations = [
+      { quality: "auto", fetch_format: "auto" }, // Ensures highest quality and auto format selection
+      { width: 2000, height: 2000, crop: "limit" }, // Limits the size to a maximum of 2000x2000px to avoid huge images
+    ];
+
+    // Upload to Cloudinary with transformations
     const uploadResponse = await cloudinary.uploader.upload(
       `data:${file.type};base64,${base64File}`,
       {
-        folder: pathName ,
-        transformation: [
-          { width: 200, height: 200, crop: "fill", gravity: "face" },
-        ],
-        
-
+        folder: pathName,
+        transformation: transformations, // Apply the transformations
       }
     );
+    
     return NextResponse.json({ url: uploadResponse.secure_url });
   } catch (error) {
     console.error("Error uploading file to Cloudinary:", error);

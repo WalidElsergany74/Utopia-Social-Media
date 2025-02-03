@@ -27,9 +27,9 @@ const page = async () => {
           })}
         </div>
       </div>
-      <div className='sticky top-20 hidden lg:block lg:col-span-4'>
-        <WhoToFollow/>
-    </div>
+      <div className='hidden lg:block lg:col-span-4'>
+    <WhoToFollow />
+</div>
     </div>
   )
 }

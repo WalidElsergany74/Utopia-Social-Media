@@ -26,7 +26,7 @@ const CreatePost = ({ user }: { user: UserWithRelations }) => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/upload`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/uploadposts`,
         {
           method: "POST",
           body: formData,

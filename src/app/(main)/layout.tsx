@@ -10,7 +10,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/auth";
 
 
-
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     default: "Utopia",
   },
   description:
-    "Join Utopia, the modern social media platform where you can connect with friends, share moments, and explore content. Powered by Next.js.",
+    "Join Utopia, the modern social media platform where you can connect with friends, share moments, and explore content. Powered by Next.js. Discover a new world of social interaction.",
   keywords: [
     "Utopia",
     "Social Media",
@@ -32,8 +31,22 @@ export const metadata: Metadata = {
     "Share",
     "Explore",
     "Next.js",
+    "Social Networking",
+    "Discover",
+    "Content Sharing",
   ],
+  openGraph: {
+    title: "Utopia - Social Media Reimagined",
+    description:
+      "Join Utopia, a modern social media platform for connecting, sharing, and exploring content. A better alternative to Instagram, built with Next.js.",
+    images: "https://res.cloudinary.com/dflih9gkm/image/upload/v1738608895/20c1d159-5daa-4ed4-aa79-0c99b3635cf9_ck4kc7.jpg", 
+    siteName: "Utopia",
+    type: "website",
+  },
+  robots: "index, follow", 
+  viewport: "width=device-width, initial-scale=1", 
 };
+
 
 export default async function RootLayout({
   children,

@@ -152,79 +152,7 @@ export async function getUserLikedPosts(userId: string) {
   }
 }
 
-// export async function updateProfile(formData: FormData) {
-//   try {
-//     const session = await getServerSession(authOptions)
-//            const userId = session?.user.id
-//            if(!userId) throw new Error("failed")
 
-//     const name = formData.get("name") as string;
-//     const bio = formData.get("bio") as string;
-//     const location = formData.get("location") as string;
-//     const website = formData.get("website") as string;
-//     const image = formData.get("image") as File
-    
-//     const imageFile = image as File;
-//     const imageUrl = Boolean(imageFile.size)
-//       ? await getImageUrl(imageFile)
-//       : undefined;
-  
-
-//     const user = await db.user.update({
-//       where: { id : userId },
-//       data: {
-//         name,
-//         bio,
-//         location,
-//         website,
-//         image : imageUrl ?? session?.user.image
-//       },
-//     });
-
-//     revalidatePath("/profile");
-//     return { success: true, user };
-//   } catch (error) {
-//     console.error("Error updating profile:", error);
-//     return { success: false, error: "Failed to update profile" };
-//   }
-// }
-
-// export async function updateProfile(formData: FormData) {
-//   try {
-//     const session = await getServerSession(authOptions);
-//     const userId = session?.user.id;
-//     if (!userId) throw new Error("failed");
-
-//     const name = formData.get("name") as string;
-//     const bio = formData.get("bio") as string;
-//     const location = formData.get("location") as string;
-//     const website = formData.get("website") as string;
-//     const image = formData.get("image") as File | null;
-
-//     let imageUrl = session?.user.image; // الصورة الافتراضية
-
-//     if (image && image.size > 0) {
-//       imageUrl = await getImageUrl(image); // رفع الصورة وإرجاع رابطها
-//     }
-
-//     const user = await db.user.update({
-//       where: { id: userId },
-//       data: {
-//         name,
-//         bio,
-//         location,
-//         website,
-//         image: imageUrl,
-//       },
-//     });
-
-//     revalidatePath("/profile");
-//     return { success: true, user };
-//   } catch (error) {
-//     console.error("Error updating profile:", error);
-//     return { success: false, error: "Failed to update profile" };
-//   }
-// }
 
 export const updateProfile = async (
 

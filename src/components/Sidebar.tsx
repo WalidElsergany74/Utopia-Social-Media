@@ -19,7 +19,7 @@ const Sidebar = async ({initialSession} : {initialSession : Session | null}) => 
     
     
   return (
-    <div className="sticky top-20 ">
+    <div className="sticky top-28 ">
     <Card className='bg-background'>
       <CardContent className="pt-6">
         <div className="flex flex-col items-center text-center">
