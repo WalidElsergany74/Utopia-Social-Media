@@ -249,7 +249,7 @@ const getImageUrl = async (imageFile: File) => {
   
 
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://utopia-social-media.vercel.app";
+    const baseUrl = "https://utopia-social-media.vercel.app";
     const response = await fetch(
       `${baseUrl}/api/upload`,
       {

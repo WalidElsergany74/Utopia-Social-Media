@@ -22,7 +22,7 @@ const CreatePost = ({ user }: { user: UserWithRelations }) => {
     const formData = new FormData();
     formData.append("file", imageFile);
     formData.append("pathName", "posts_images");
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://utopia-social-media.vercel.app";
+    const baseUrl ="https://utopia-social-media.vercel.app";
 
     try {
       const response = await fetch(
