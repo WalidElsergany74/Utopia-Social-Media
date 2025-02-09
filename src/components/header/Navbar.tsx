@@ -65,7 +65,7 @@ const Navbar = ({ initialSession }: { initialSession: Session | null }) => {
   return (
     <nav className="order-last lg:order-none flex-1 items-center justify-end flex">
       <div className="flex items-center gap-3 lg:gap-0">
-        {session?.data?.user && (
+        {session?.data?.user ? (
           <>
             <div className="lg:hidden">
               <AvatarProfile initialSession={initialSession} />
@@ -79,7 +79,10 @@ const Navbar = ({ initialSession }: { initialSession: Session | null }) => {
           )}
         </Link>
           </>
-        )}
+        ) : <Link className="text-primay" href={"/auth/signin"}>
+           <Button size={"sm"}>Login</Button>
+          </Link>
+          }
         <ModeToggle />
         <Button variant={"secondary"} size={"sm"} className="lg:hidden" onClick={() => setOpenMenu(true)}>
           <Menu className="!w-6 !h-6" />

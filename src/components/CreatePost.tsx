@@ -22,11 +22,11 @@ const CreatePost = ({ user }: { user: UserWithRelations }) => {
     const formData = new FormData();
     formData.append("file", imageFile);
     formData.append("pathName", "posts_images");
-    console.log([...formData.entries()]);
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://utopia-social-media.vercel.app";
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/uploadposts`,
+        `${baseUrl}/api/uploadposts`,
         {
           method: "POST",
           body: formData,
@@ -42,14 +42,14 @@ const CreatePost = ({ user }: { user: UserWithRelations }) => {
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setImageFile(file); // Store the file temporarily
-      setImageUrl(URL.createObjectURL(file)); // Create a local URL for preview
-      setShowImageUpload(false); // Close the image upload section
+      setImageFile(file); 
+      setImageUrl(URL.createObjectURL(file)); 
+      setShowImageUpload(false); 
     }
   };
 
   const handleSubmit = async () => {
-    if (!content.trim() && !imageFile) return; // Ensure content or image is present
+    if (!content.trim() && !imageFile) return; 
     setIsPosting(true);
     try {
       let cloudinaryUrl = "";

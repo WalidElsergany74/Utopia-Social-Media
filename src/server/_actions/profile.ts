@@ -246,11 +246,12 @@ const getImageUrl = async (imageFile: File) => {
   const formData = new FormData();
   formData.append("file", imageFile);
   formData.append("pathName", "profile_images");
-  console.log([...formData.entries()]);
+  
 
   try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://utopia-social-media.vercel.app";
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/upload`,
+      `${baseUrl}/api/upload`,
       {
         method: "POST",
         body: formData,
