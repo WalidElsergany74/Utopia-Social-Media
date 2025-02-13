@@ -79,9 +79,7 @@ const Navbar = ({ initialSession }: { initialSession: Session | null }) => {
           )}
         </Link>
           </>
-        ) : <Link className="text-primay" href={"/auth/signin"}>
-           <Button size={"sm"}>Login</Button>
-          </Link>
+        ) : ""
           }
         <ModeToggle />
         <Button variant={"secondary"} size={"sm"} className="lg:hidden" onClick={() => setOpenMenu(true)}>
